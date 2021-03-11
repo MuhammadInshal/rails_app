@@ -1,0 +1,768 @@
+  [1m[35m (29.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (27.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7392191400372436665)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateShops (20210311123208)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE TABLE "shops" ("id" bigserial primary key, "shopify_domain" character varying NOT NULL, "shopify_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_shops_on_shopify_domain" ON "shops"  ("shopify_domain")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210311123208"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddShopAccessScopesColumn (20210311123235)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "shops" ADD "access_scopes" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210311123235"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-11 12:55:43.469044"], ["updated_at", "2021-03-11 12:55:43.469044"]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7392191400372436665)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7392191400372436665)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7392191400372436665)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 118.103.233.132 at 2021-03-11 17:58:04 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Redirected to https://39a6d6b4f85f.ngrok.io/login
+Completed 302 Found in 57ms (ActiveRecord: 0.0ms | Allocations: 9810)
+
+
+Started GET "/login" for 118.103.233.132 at 2021-03-11 17:58:05 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.5ms | Allocations: 266)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.5ms | Allocations: 116)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 1.1ms | Allocations: 198)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_form_styles.html.erb (Duration: 0.7ms | Allocations: 144)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb (Duration: 15.9ms | Allocations: 3197)
+Completed 200 OK in 30ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 5655)
+
+
+Started POST "/login" for 118.103.233.132 at 2021-03-11 17:58:17 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"6BDcVIrXb3A8nkGEJBZ9t6p9xreOibgLCbG4i9tAvxZQWfklZ73GfgIfTEjcBF/IekPyKV9kVbe+YWNlu+InRA==", "shop"=>"gallery-one-shop.myshopify.com"}
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 54.8ms | Allocations: 32819)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.0ms | Allocations: 33908)
+
+
+Started GET "/login?return_to=%2F&shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 17:58:18 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/", "shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 863)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 17:58:19 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=795c9e2c7f7a2f913a5e5afb89f54ba5&hmac=7e4e0bc4e61dc4a6f28c7190364a18fd4cff6b84b9923484ea386b9738496091&shop=gallery-one-shop.myshopify.com&state=b013f3ea5ef7c480b61873fe3a06bd7d7a5ce2729644ed08&timestamp=1615467543" for 118.103.233.132 at 2021-03-11 17:58:28 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"795c9e2c7f7a2f913a5e5afb89f54ba5", "hmac"=>"7e4e0bc4e61dc4a6f28c7190364a18fd4cff6b84b9923484ea386b9738496091", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"b013f3ea5ef7c480b61873fe3a06bd7d7a5ce2729644ed08", "timestamp"=>"1615467543"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mShop Create (0.8ms)[0m  [1m[32mINSERT INTO "shops" ("shopify_domain", "shopify_token", "created_at", "updated_at", "access_scopes") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["shopify_token", "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"], ["created_at", "2021-03-11 12:58:29.264606"], ["updated_at", "2021-03-11 12:58:29.264606"], ["access_scopes", "write_products"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 34ms (ActiveRecord: 12.1ms | Allocations: 13827)
+
+
+Started GET "/?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:29 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 529)
+
+
+Started GET "/login?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:30 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 3.7ms | Allocations: 2170)
+Completed 200 OK in 628ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 6979)
+
+
+Started GET "/login?return_to=%2F%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 17:58:31 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 477ms (ActiveRecord: 0.3ms | Allocations: 4147)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 17:58:32 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=19240b1ed9f84e24f2c17782dc29301f&hmac=86fee52f5f770fb8cab832a1871b9b815b363ebde326261fe2cec0dfd7aa8630&shop=gallery-one-shop.myshopify.com&state=79cded94fa42459874dec883b73693422624bfeae274ba57&timestamp=1615467549" for 118.103.233.132 at 2021-03-11 17:58:33 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"19240b1ed9f84e24f2c17782dc29301f", "hmac"=>"86fee52f5f770fb8cab832a1871b9b815b363ebde326261fe2cec0dfd7aa8630", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"79cded94fa42459874dec883b73693422624bfeae274ba57", "timestamp"=>"1615467549"}
+  [1m[36mShop Load (0.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 16ms (ActiveRecord: 5.7ms | Allocations: 6730)
+
+
+Started GET "/?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:34 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 541)
+
+
+Started GET "/login?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:35 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 5.5ms | Allocations: 2169)
+Completed 200 OK in 529ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 6588)
+
+
+Started GET "/login?return_to=%2F%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 17:58:36 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 509ms (ActiveRecord: 0.5ms | Allocations: 4093)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 17:58:37 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=cc2e372f29cb097de647cfe108362336&hmac=f0cd28bbfeb8d563bb76048a0321923dddb13a039eb6f1b33e7d6aa28ac3eac7&shop=gallery-one-shop.myshopify.com&state=61902caa21f4394d042220fff358ee93e27a529fac647ab3&timestamp=1615467554" for 118.103.233.132 at 2021-03-11 17:58:38 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"cc2e372f29cb097de647cfe108362336", "hmac"=>"f0cd28bbfeb8d563bb76048a0321923dddb13a039eb6f1b33e7d6aa28ac3eac7", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"61902caa21f4394d042220fff358ee93e27a529fac647ab3", "timestamp"=>"1615467554"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms | Allocations: 6716)
+
+
+Started GET "/?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:39 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 543)
+
+
+Started GET "/login?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:40 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 5.2ms | Allocations: 2170)
+Completed 200 OK in 416ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 6610)
+
+
+Started GET "/login?return_to=%2F%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 17:58:41 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 434ms (ActiveRecord: 0.3ms | Allocations: 4098)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 17:58:42 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=39ce656d5c38b00b3182168b598da8fc&hmac=6120bf45eed6f055a1b4f9da6ca3689803fccc2d27a7b224589e35e1cc09b183&shop=gallery-one-shop.myshopify.com&state=8ad8aad6132b426072ede9ef58da272646bfc39f8d60aa48&timestamp=1615467559" for 118.103.233.132 at 2021-03-11 17:58:43 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"39ce656d5c38b00b3182168b598da8fc", "hmac"=>"6120bf45eed6f055a1b4f9da6ca3689803fccc2d27a7b224589e35e1cc09b183", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"8ad8aad6132b426072ede9ef58da272646bfc39f8d60aa48", "timestamp"=>"1615467559"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 10ms (ActiveRecord: 1.4ms | Allocations: 6713)
+
+
+Started GET "/?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:44 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 537)
+
+
+Started GET "/login?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:58:45 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.0ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 5.2ms | Allocations: 2169)
+Completed 200 OK in 508ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 6591)
+
+
+Started GET "/login?return_to=%2F%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 17:58:46 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 509ms (ActiveRecord: 0.5ms | Allocations: 4102)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 17:58:47 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/?hmac=818fdaa64ac7403b08de63231c9b907b55548c8dbf25472fdef38c42140acd11&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615467617" for 118.103.233.132 at 2021-03-11 17:59:42 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"818fdaa64ac7403b08de63231c9b907b55548c8dbf25472fdef38c42140acd11", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615467617"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/embedded_app
+  Rendered home/index.html.erb within layouts/embedded_app (Duration: 0.4ms | Allocations: 296)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/muhammad/Sites/rails_app/public/packs
+[Webpacker] Hash: 8e821508db4290a9eb3a
+Version: webpack 4.46.0
+Time: 2187ms
+Built at: 03/11/2021 5:59:45 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6cfff68f94698b100c85.js    126 KiB  application  [emitted] [immutable]  application
+js/application-6cfff68f94698b100c85.js.map    141 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-6cfff68f94698b100c85.js js/application-6cfff68f94698b100c85.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 775 bytes {application} [built]
+[./app/javascript/shopify_app/flash_messages.js] 710 bytes {application} [built]
+[./app/javascript/shopify_app/index.js] 55 bytes {application} [built]
+[./app/javascript/shopify_app/shopify_app.js] 421 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layouts/_flash_messages.html.erb (Duration: 0.6ms | Allocations: 215)
+Completed 200 OK in 3500ms (Views: 3487.0ms | ActiveRecord: 3.3ms | Allocations: 15619)
+
+
+[ShopifyApp::JWT] Failed to validate JWT: [JWT::ImmatureSignature] Signature nbf has not been reached
+Started GET "/products" for 118.103.233.132 at 2021-03-11 17:59:48 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+Redirected to https://39a6d6b4f85f.ngrok.io/login?return_to=%2Fproducts&shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 682)
+
+
+[ShopifyApp::JWT] Failed to validate JWT: [JWT::ImmatureSignature] Signature nbf has not been reached
+Started GET "/login?return_to=%2Fproducts&shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 17:59:48 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as */*
+  Parameters: {"return_to"=>"/products", "shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.0ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 4.7ms | Allocations: 3260)
+Completed 200 OK in 725ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 8474)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:01:12 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Redirected to https://39a6d6b4f85f.ngrok.io/login?return_to=%2Fproducts
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms | Allocations: 3783)
+
+
+Started GET "/login?return_to=%2Fproducts" for 118.103.233.132 at 2021-03-11 18:01:13 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/products"}
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 1.3ms | Allocations: 266)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.4ms | Allocations: 117)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.4ms | Allocations: 116)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.4ms | Allocations: 198)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_form_styles.html.erb (Duration: 0.3ms | Allocations: 144)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb (Duration: 14.4ms | Allocations: 3029)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 4629)
+
+
+Started GET "/login?return_to=%2Fproducts" for 118.103.233.132 at 2021-03-11 18:01:20 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/products"}
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.0ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_form_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb (Duration: 3.4ms | Allocations: 487)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 968)
+
+
+Started POST "/login" for 118.103.233.132 at 2021-03-11 18:01:40 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"TWxGHGqJmlzhdMdfSG/4NV3eqE05Sx2JFi3+7sIUQEKoY49B8KiMdmltaqd1GzhDQsCImgxAfPomVHDmpy8SZw==", "shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 714ms (ActiveRecord: 6.8ms | Allocations: 9890)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 18:01:41 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=1a6a7023d7b01586b3791eb33a80aa2e&hmac=8b9f9f9a2c6e78c63bc78d51e88cc9332c935818ada511e77696d82eaff075c3&shop=gallery-one-shop.myshopify.com&state=8066944814028633c966da3e8108d1778135a9677ed33967&timestamp=1615467738" for 118.103.233.132 at 2021-03-11 18:01:43 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"1a6a7023d7b01586b3791eb33a80aa2e", "hmac"=>"8b9f9f9a2c6e78c63bc78d51e88cc9332c935818ada511e77696d82eaff075c3", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"8066944814028633c966da3e8108d1778135a9677ed33967", "timestamp"=>"1615467738"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/products?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 13ms (ActiveRecord: 2.4ms | Allocations: 6994)
+
+
+Started GET "/products?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:44 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 462)
+
+
+Started GET "/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:44 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/products?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 448ms (ActiveRecord: 0.6ms | Allocations: 4112)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 18:01:45 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=76d4fb7b0a70c6c20c421edb678de34b&hmac=37e23b082cc31a1d1ad0c3901a7b82f5d5820508750c12d140fc750c47de2785&shop=gallery-one-shop.myshopify.com&state=8d5406d364cfa7f53435bd4656deced82c3c06aa482b7e85&timestamp=1615467743" for 118.103.233.132 at 2021-03-11 18:01:48 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"76d4fb7b0a70c6c20c421edb678de34b", "hmac"=>"37e23b082cc31a1d1ad0c3901a7b82f5d5820508750c12d140fc750c47de2785", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"8d5406d364cfa7f53435bd4656deced82c3c06aa482b7e85", "timestamp"=>"1615467743"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/products?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 12ms (ActiveRecord: 1.3ms | Allocations: 6679)
+
+
+Started GET "/products?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:49 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started GET "/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:49 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/products?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 481ms (ActiveRecord: 0.3ms | Allocations: 4115)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 18:01:51 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/auth/shopify/callback?code=e03bcb1dbf0b6a3ef6bae4a0ab1a7669&hmac=9677a0dbe0b0d457fa749cf17a6bcac63f8beb54b373afcb2f8d577c4f4c647d&shop=gallery-one-shop.myshopify.com&state=6f6cb8a24e8eba41a542172ef9cdea29d69bac464f514f63&timestamp=1615467747" for 118.103.233.132 at 2021-03-11 18:01:52 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"e03bcb1dbf0b6a3ef6bae4a0ab1a7669", "hmac"=>"9677a0dbe0b0d457fa749cf17a6bcac63f8beb54b373afcb2f8d577c4f4c647d", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"6f6cb8a24e8eba41a542172ef9cdea29d69bac464f514f63", "timestamp"=>"1615467747"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://39a6d6b4f85f.ngrok.io/products?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 12ms (ActiveRecord: 1.3ms | Allocations: 6678)
+
+
+Started GET "/products?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:53 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+Redirected to https://39a6d6b4f85f.ngrok.io/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started GET "/login?return_to=%2Fproducts%3Fshop%3Dgallery-one-shop.myshopify.com&shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:01:54 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"return_to"=>"/products?shop=gallery-one-shop.myshopify.com", "shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to https://39a6d6b4f85f.ngrok.io/auth/shopify
+Completed 302 Found in 501ms (ActiveRecord: 0.6ms | Allocations: 4102)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 18:01:55 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /home/muhammad/.rvm/gems/ruby-2.6.3/bin/rake:23)
+Started GET "/?hmac=00828566e31689dc927404758f69938dd8f5cf08ef59ccd77f7533551198bb32&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468071" for 118.103.233.132 at 2021-03-11 18:07:18 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"00828566e31689dc927404758f69938dd8f5cf08ef59ccd77f7533551198bb32", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468071"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 326)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 25.7ms | ActiveRecord: 1.2ms | Allocations: 14066)
+
+
+Started GET "/?hmac=4e2d0fab7d31b64eb3d5061af8cc7d55c3868a6ae65c5eb7db28341ad9db3b65&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468091" for 118.103.233.132 at 2021-03-11 18:07:37 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"4e2d0fab7d31b64eb3d5061af8cc7d55c3868a6ae65c5eb7db28341ad9db3b65", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468091"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 5898)
+
+
+Started GET "/?hmac=687a87ebc71f67cfaf571263a5307acbb9c6a6810e17940fe4b33a7e0b17aeb8&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468169" for 118.103.233.132 at 2021-03-11 18:08:55 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"687a87ebc71f67cfaf571263a5307acbb9c6a6810e17940fe4b33a7e0b17aeb8", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468169"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 7.5ms | ActiveRecord: 6.5ms | Allocations: 10652)
+
+
+Started GET "/?hmac=2f76a8c14cf41dec92e7f54c54f8c36caa6a9307fb8a4e1c4aa43255081e7581&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468213" for 118.103.233.132 at 2021-03-11 18:09:41 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"2f76a8c14cf41dec92e7f54c54f8c36caa6a9307fb8a4e1c4aa43255081e7581", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468213"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 7207)
+
+
+Started GET "/?hmac=24529963f2c7c39e2c9f545996b89f884291836dada075a67f80783893d0c555&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468228" for 118.103.233.132 at 2021-03-11 18:09:56 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"24529963f2c7c39e2c9f545996b89f884291836dada075a67f80783893d0c555", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468228"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 5.4ms | ActiveRecord: 4.3ms | Allocations: 10545)
+
+
+Started GET "/?hmac=41c5d8c3edec5f538077ea24c1e5c70794a073ec920e0ba8b63c739c093c7901&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468306" for 118.103.233.132 at 2021-03-11 18:11:13 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"41c5d8c3edec5f538077ea24c1e5c70794a073ec920e0ba8b63c739c093c7901", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468306"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 283)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 7195)
+
+
+Started GET "/?hmac=4bab43b1fcfab8e3d9a568b11aafbbbf14af2db837ee6fd382ab6673485e6558&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468380" for 118.103.233.132 at 2021-03-11 18:12:27 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"4bab43b1fcfab8e3d9a568b11aafbbbf14af2db837ee6fd382ab6673485e6558", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468380"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 5896)
+
+
+Started GET "/?hmac=6d9d1b4d15237a146eb9d9cbae3ca5a541b1be26de0a469831b50aa5967e183c&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468427" for 118.103.233.132 at 2021-03-11 18:13:14 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"6d9d1b4d15237a146eb9d9cbae3ca5a541b1be26de0a469831b50aa5967e183c", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468427"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 5895)
+
+
+Started GET "/?hmac=354f7f489bede627ef8b16418dcee60100520fcdd13649b9c2513a0a60a26405&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468463" for 118.103.233.132 at 2021-03-11 18:13:50 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"354f7f489bede627ef8b16418dcee60100520fcdd13649b9c2513a0a60a26405", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468463"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 3.1ms | Allocations: 10599)
+
+
+Started GET "/?hmac=777eaf1e6469ce3242e03bc537fd51fabc7780380d06ee26c23f2ed5ef343c9f&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468542" for 118.103.233.132 at 2021-03-11 18:15:09 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"777eaf1e6469ce3242e03bc537fd51fabc7780380d06ee26c23f2ed5ef343c9f", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468542"}
+  [1m[36mShop Load (1.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 10.8ms | ActiveRecord: 6.4ms | Allocations: 11734)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:15:20 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+Started GET "/?hmac=edbfabf0c6aa05ca924b02cf2aeb171084f94d9a4d8a9dae7600b9000e947cfc&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468581" for 118.103.233.132 at 2021-03-11 18:15:49 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"edbfabf0c6aa05ca924b02cf2aeb171084f94d9a4d8a9dae7600b9000e947cfc", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468581"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 5.2ms | ActiveRecord: 4.0ms | Allocations: 10554)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:15:56 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at /home/muhammad/Sites/rails_app/config/environment.rb:5)
+Started GET "/?hmac=b603a1d2eb28d80e5c382b4c701c2da97209cb3394f8ba4931078a6194fe0751&locale=en&new_design_language=true&session=eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3&shop=gallery-one-shop.myshopify.com&timestamp=1615468813" for 118.103.233.132 at 2021-03-11 18:19:40 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"b603a1d2eb28d80e5c382b4c701c2da97209cb3394f8ba4931078a6194fe0751", "locale"=>"en", "new_design_language"=>"true", "session"=>"eafd31255e6c6661c68e2f8c4faf50d7654744d2acf79dbab6e2656358681cc3", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468813"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 5903)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:19:50 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:19:57 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+Started GET "/?hmac=788e276981d5303ec9c23705d7403accf374f1e3f37140a9df578517e59c7e81&shop=gallery-one-shop.myshopify.com&timestamp=1615468894" for 118.103.233.132 at 2021-03-11 18:20:59 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"788e276981d5303ec9c23705d7403accf374f1e3f37140a9df578517e59c7e81", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468894"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 5895)
+
+
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at /home/muhammad/Sites/rails_app/config/environment.rb:5)
+Started GET "/?hmac=788e276981d5303ec9c23705d7403accf374f1e3f37140a9df578517e59c7e81&shop=gallery-one-shop.myshopify.com&timestamp=1615468894" for 118.103.233.132 at 2021-03-11 18:21:32 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"788e276981d5303ec9c23705d7403accf374f1e3f37140a9df578517e59c7e81", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468894"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 0.3ms | Allocations: 5989)
+
+
+Started GET "/?hmac=2352ed42897bddfc17e0129f00c4df54ffe8225e9284a3957cad180998eb73c4&shop=gallery-one-shop.myshopify.com&timestamp=1615468975" for 118.103.233.132 at 2021-03-11 18:22:21 +0500
+Cannot render console from 118.103.233.132! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"2352ed42897bddfc17e0129f00c4df54ffe8225e9284a3957cad180998eb73c4", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615468975"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 5992)
+
+
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at /home/muhammad/Sites/rails_app/config/environment.rb:5)
+Started GET "/?hmac=1fd0966d6e400332db6b40f3170b514d659153194927b55c546edb6ececadd42&shop=gallery-one-shop.myshopify.com&timestamp=1615469000" for 118.103.233.132 at 2021-03-11 18:22:45 +0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"1fd0966d6e400332db6b40f3170b514d659153194927b55c546edb6ececadd42", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615469000"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/embedded_app
+  Rendered home/index.html.erb within layouts/embedded_app (Duration: 1.9ms | Allocations: 435)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_flash_messages.html.erb (Duration: 0.5ms | Allocations: 227)
+Completed 200 OK in 96ms (Views: 49.8ms | ActiveRecord: 7.1ms | Allocations: 20346)
+
+
+Started GET "/" for 118.103.233.132 at 2021-03-11 18:23:33 +0500
+Processing by HomeController#index as HTML
+Redirected to https://edd456320243.ngrok.io/login
+Filter chain halted as :check_shop_domain rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/login" for 118.103.233.132 at 2021-03-11 18:23:34 +0500
+Processing by ShopifyApp::SessionsController#new as HTML
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.3ms | Allocations: 266)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.2ms | Allocations: 117)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.2ms | Allocations: 116)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.5ms | Allocations: 198)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_form_styles.html.erb (Duration: 0.4ms | Allocations: 144)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/new.html.erb (Duration: 6.6ms | Allocations: 2890)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3803)
+
+
+Started POST "/login" for 118.103.233.132 at 2021-03-11 18:23:45 +0500
+Processing by ShopifyApp::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"R1Sp1ha7CsesjSrHczqbJYsTmp7pM66GrZ690iGk1tjAHtxBpNs2Gkf9mBcS5c9Q3AwTE3BZi21QZeftYpOBYw==", "shop"=>"gallery-one-shop.myshopify.com"}
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.0ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 10.3ms | Allocations: 5958)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 7015)
+
+
+Started GET "/login?shop=gallery-one-shop.myshopify.com&top_level=true" for 118.103.233.132 at 2021-03-11 18:23:46 +0500
+Processing by ShopifyApp::SessionsController#new as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com", "top_level"=>"true"}
+Redirected to https://edd456320243.ngrok.io/auth/shopify
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 671)
+
+
+Started GET "/auth/shopify" for 118.103.233.132 at 2021-03-11 18:23:47 +0500
+Started GET "/auth/shopify/callback?code=965fcaa997a016edbe363fbf9939c00d&hmac=efdf416f76d1a877c660e7b536e390f34903d564ab74ec38754acc510cf55115&shop=gallery-one-shop.myshopify.com&state=776e12b74498e3b4b546ff373d86e0fce77b50607e04b9bf&timestamp=1615469080" for 118.103.233.132 at 2021-03-11 18:24:06 +0500
+Processing by ShopifyApp::CallbackController#callback as HTML
+  Parameters: {"code"=>"965fcaa997a016edbe363fbf9939c00d", "hmac"=>"efdf416f76d1a877c660e7b536e390f34903d564ab74ec38754acc510cf55115", "shop"=>"gallery-one-shop.myshopify.com", "state"=>"776e12b74498e3b4b546ff373d86e0fce77b50607e04b9bf", "timestamp"=>"1615469080"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE LOWER("shops"."shopify_domain") = LOWER($1) AND "shops"."id" != $2 LIMIT $3[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mShop Update (0.7ms)[0m  [1m[33mUPDATE "shops" SET "shopify_token" = $1, "updated_at" = $2 WHERE "shops"."id" = $3[0m  [["shopify_token", "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"], ["updated_at", "2021-03-11 13:24:07.027529"], ["id", 1]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to https://edd456320243.ngrok.io/?shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 33ms (ActiveRecord: 14.7ms | Allocations: 8621)
+
+
+Started GET "/?shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:24:09 +0500
+Processing by HomeController#index as HTML
+  Parameters: {"shop"=>"gallery-one-shop.myshopify.com"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/embedded_app
+  Rendered home/index.html.erb within layouts/embedded_app (Duration: 0.1ms | Allocations: 6)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_flash_messages.html.erb (Duration: 0.2ms | Allocations: 88)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 0.4ms | Allocations: 6210)
+
+
+Started GET "/?hmac=d5c4f01a556d3c0984463c632047136aa05d941e5e15e6b45aa221d0cb8df832&locale=en&new_design_language=true&session=b5b7d137eeac28b59d39c6293369c264ca976d4959e31165245645dae6a7af33&shop=gallery-one-shop.myshopify.com&timestamp=1615469087" for 118.103.233.132 at 2021-03-11 18:24:14 +0500
+Processing by HomeController#index as HTML
+  Parameters: {"hmac"=>"d5c4f01a556d3c0984463c632047136aa05d941e5e15e6b45aa221d0cb8df832", "locale"=>"en", "new_design_language"=>"true", "session"=>"b5b7d137eeac28b59d39c6293369c264ca976d4959e31165245645dae6a7af33", "shop"=>"gallery-one-shop.myshopify.com", "timestamp"=>"1615469087"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."shopify_domain" = $1 LIMIT $2[0m  [["shopify_domain", "gallery-one-shop.myshopify.com"], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/embedded_app
+  Rendered home/index.html.erb within layouts/embedded_app (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_flash_messages.html.erb (Duration: 0.2ms | Allocations: 88)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 6095)
+
+
+[ShopifyApp::JWT] Failed to validate JWT: [JWT::ImmatureSignature] Signature nbf has not been reached
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:24:15 +0500
+Processing by ProductsController#index as */*
+Redirected to https://edd456320243.ngrok.io/login?return_to=%2Fproducts&shop=gallery-one-shop.myshopify.com
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 565)
+
+
+[ShopifyApp::JWT] Failed to validate JWT: [JWT::ImmatureSignature] Signature nbf has not been reached
+Started GET "/login?return_to=%2Fproducts&shop=gallery-one-shop.myshopify.com" for 118.103.233.132 at 2021-03-11 18:24:16 +0500
+Processing by ShopifyApp::SessionsController#new as */*
+  Parameters: {"return_to"=>"/products", "shop"=>"gallery-one-shop.myshopify.com"}
+  Rendering /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_layout_styles.html.erb (Duration: 0.0ms | Allocations: 6)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_typography_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_card_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/partials/_button_styles.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered /home/muhammad/.rvm/gems/ruby-2.6.3/gems/shopify_app-17.1.0/app/views/shopify_app/sessions/request_storage_access.html.erb (Duration: 4.1ms | Allocations: 3258)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 4367)
+
+
+Started GET "/products" for 118.103.233.132 at 2021-03-11 18:24:27 +0500
+Processing by ProductsController#index as */*
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 234)
+
+
